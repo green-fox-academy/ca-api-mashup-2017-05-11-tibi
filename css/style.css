@@ -1,0 +1,25 @@
+body {
+	font-family: Arial;
+}
+
+a {
+	display: inline-block;
+	margin: 0.2rem;
+	text-decoration: none;
+	background: tomato;
+	border-radius: 3px;
+	color: #fff;
+	padding: 0.2rem 0.5rem;
+}
+
+main {
+	display: flex;
+}
+
+article {
+	flex: 0 0 50%;
+}
+
+img {
+	margin: 0.5rem;
+}
