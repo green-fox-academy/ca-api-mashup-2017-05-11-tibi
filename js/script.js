@@ -7,7 +7,11 @@ var imageWrapper = document.querySelector('#image-wrapper');
 function getWordnikData(keyword) {
 	const endpoint = 'http://api.wordnik.com:80/v4/word.json/'+ keyword +'/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=' + wordnik_key;
 	ajax(endpoint, function (response) {
-		displayWordnikResults(response);
+		if(response.length) {
+			displayWordnikResults(response);
+		} else {
+			wResults.innerHTML = '<h3>Nothing found :(</h3>';
+		}
 	});
 }
 
