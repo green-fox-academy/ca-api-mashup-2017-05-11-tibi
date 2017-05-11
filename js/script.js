@@ -62,3 +62,9 @@ function displayGoogleResults(gData) {
 button.addEventListener('click', function () {
 	getWordnikData(keyword.value)
 });
+
+keyword.addEventListener('keyup', function (e) {
+	if(e.keyCode == 13) { // Enter key
+		getWordnikData(keyword.value)
+	}
+});
