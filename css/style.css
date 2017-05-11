@@ -2,7 +2,7 @@ body {
 	font-family: Arial;
 }
 
-a {
+#wordnik-results a {
 	display: inline-block;
 	margin: 0.2rem;
 	text-decoration: none;

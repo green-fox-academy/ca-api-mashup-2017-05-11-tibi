@@ -41,7 +41,13 @@ function displayGoogleResults(gData) {
 	gData.items.forEach(function (item) {
 		var img = document.createElement('img');
 		img.src = item.image.thumbnailLink;
-		imageWrapper.appendChild(img);
+
+		var anchor = document.createElement('a');
+		anchor.href = item.image.contextLink;
+		anchor.target = '_blank';
+
+		anchor.appendChild(img);
+		imageWrapper.appendChild(anchor);
 	});
 }
 
