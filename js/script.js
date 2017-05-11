@@ -3,8 +3,10 @@ var button = document.querySelector('#action');
 var keyword = document.querySelector('#keyword');
 var wResults = document.querySelector('#wordnik-results');
 var imageWrapper = document.querySelector('#image-wrapper');
+var yuge = document.querySelector('#yuge');
 
 function getWordnikData(keyword) {
+	wResults.innerHTML = '';
 	const endpoint = 'http://api.wordnik.com:80/v4/word.json/'+ keyword +'/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=' + wordnik_key;
 	ajax(endpoint, function (response) {
 		if(response.length) {
@@ -35,7 +37,8 @@ function displayWordnikResults(relatedData) {
 }
 
 function getGoogleData(keyword) {
-	const endpoint = 'https://www.googleapis.com/customsearch/v1?q='+ keyword +'&cx=' + google_se + '&searchType=image&key=' + google_api_key
+	var huge = ( yuge.checked ) ? '&imgSize=huge' : '';
+	const endpoint = 'https://www.googleapis.com/customsearch/v1?q='+ keyword +'&cx=' + google_se + huge + '&searchType=image&key=' + google_api_key
 	ajax(endpoint, function (response) {
 		displayGoogleResults(response);
 	});
