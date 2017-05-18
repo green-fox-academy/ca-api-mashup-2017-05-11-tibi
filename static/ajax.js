@@ -1,11 +1,12 @@
 'use strict';
 
-function ajax(url, callback) {
-	var xhr = new XMLHttpRequest(),
-	method = "GET";
+function ajax(url, method, callback, data) {
+	var xhr = new XMLHttpRequest();
 
 	xhr.open(method, url, true);
-
+	if( data ) {
+		xhr.setRequestHeader('Content-type', 'application/json');
+	}
 	xhr.onreadystatechange = function () {
 		if(xhr.readyState === XMLHttpRequest.DONE) {
 			if(xhr.status === 200) {
@@ -17,5 +18,5 @@ function ajax(url, callback) {
 			}
 		}
 	};
-	xhr.send();
+	xhr.send(JSON.stringify(data));
 }

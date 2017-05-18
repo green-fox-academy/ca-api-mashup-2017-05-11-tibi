@@ -6,9 +6,11 @@ var imageWrapper = document.querySelector('#image-wrapper');
 var yuge = document.querySelector('#yuge');
 
 function getWordnikData(keyword) {
+	sendLogRequest(keyword);
+
 	wResults.innerHTML = '';
 	const endpoint = 'http://api.wordnik.com:80/v4/word.json/'+ keyword +'/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=' + wordnik_key;
-	ajax(endpoint, function (response) {
+	ajax(endpoint, 'GET', function (response) {
 		if(response.length) {
 			displayWordnikResults(response);
 		} else {
@@ -39,7 +41,7 @@ function displayWordnikResults(relatedData) {
 function getGoogleData(keyword) {
 	var huge = ( yuge.checked ) ? '&imgSize=huge' : '';
 	const endpoint = 'https://www.googleapis.com/customsearch/v1?q='+ keyword +'&cx=' + google_se + huge + '&searchType=image&key=' + google_api_key
-	ajax(endpoint, function (response) {
+	ajax(endpoint, 'GET', function (response) {
 		displayGoogleResults(response);
 	});
 }
@@ -59,8 +61,14 @@ function displayGoogleResults(gData) {
 }
 
 
+function sendLogRequest(input) {
+	ajax('/logger', 'POST', function (res) {
+		console.log(res);		
+	}, {keyword:input});
+}
+
 button.addEventListener('click', function () {
-	getWordnikData(keyword.value)
+	getWordnikData(keyword.value);
 });
 
 keyword.addEventListener('keyup', function (e) {
