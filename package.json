@@ -1,0 +1,23 @@
+{
+  "name": "ca-api-mashup-2017-05-11-tibi",
+  "version": "1.0.0",
+  "description": "Mashing up Wordnik API and Google images",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenfox-academy/ca-api-mashup-2017-05-11-tibi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenfox-academy/ca-api-mashup-2017-05-11-tibi/issues"
+  },
+  "homepage": "https://github.com/greenfox-academy/ca-api-mashup-2017-05-11-tibi#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
